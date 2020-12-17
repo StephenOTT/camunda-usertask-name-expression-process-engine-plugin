@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1aegxl9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_0b4s90s">
+    <bpmn:extensionElements>
+      <camunda:properties>
+        <camunda:property name="name_exp" value="${Review submission for action: startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;second&#39;).value()}" />
+      </camunda:properties>
+    </bpmn:extensionElements>
+    <bpmn:participant id="Participant_10cz8zq" name="Without the plugin.... HORRIBLE!!" processRef="Process_06114kp" />
+    <bpmn:participant id="Participant_14ha0hc" name="With the plugin... EXCELLENT" processRef="Process_07bnf6r" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_06114kp" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Submit Form with Action">
+      <bpmn:outgoing>Flow_1ryjoi1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0qena63" name="Review submission for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;first&#39;).value()}">
+      <bpmn:incoming>Flow_1ryjoi1</bpmn:incoming>
+      <bpmn:outgoing>Flow_16rwvq9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0mi2fmh" name="Review submission for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;second&#39;).value()}">
+      <bpmn:incoming>Flow_16rwvq9</bpmn:incoming>
+      <bpmn:outgoing>Flow_0eewbj6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_06qfo5t" name="Long Term Storage for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;third&#39;).value()}">
+      <bpmn:incoming>Flow_0eewbj6</bpmn:incoming>
+      <bpmn:outgoing>Flow_066qpmh</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1vnrfsi">
+      <bpmn:incoming>Flow_066qpmh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ryjoi1" sourceRef="StartEvent_1" targetRef="Activity_0qena63" />
+    <bpmn:sequenceFlow id="Flow_16rwvq9" sourceRef="Activity_0qena63" targetRef="Activity_0mi2fmh" />
+    <bpmn:sequenceFlow id="Flow_0eewbj6" sourceRef="Activity_0mi2fmh" targetRef="Activity_06qfo5t" />
+    <bpmn:sequenceFlow id="Flow_066qpmh" sourceRef="Activity_06qfo5t" targetRef="Event_1vnrfsi" />
+    <bpmn:textAnnotation id="TextAnnotation_1uo1mdn">
+      <bpmn:text>Long Term Storage for Action X</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_00m96lb">
+      <bpmn:text>Review Submission for Action X</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1jbv7ns">
+      <bpmn:text>Review Submission for Action X</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_01yiyn6" sourceRef="Activity_06qfo5t" targetRef="TextAnnotation_1uo1mdn" />
+    <bpmn:association id="Association_146wlg4" sourceRef="Activity_0mi2fmh" targetRef="TextAnnotation_00m96lb" />
+    <bpmn:association id="Association_08sl3m3" sourceRef="Activity_0qena63" targetRef="TextAnnotation_1jbv7ns" />
+  </bpmn:process>
+  <bpmn:process id="Process_07bnf6r" isExecutable="true">
+    <bpmn:startEvent id="Event_19ig2qa" name="Submit Form with Action">
+      <bpmn:outgoing>Flow_1ts7r17</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0m5w9ox" name="Review Submission for Action X">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="name_exp" value="Review submission for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;first&#39;).value()}" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ts7r17</bpmn:incoming>
+      <bpmn:outgoing>Flow_14auokk</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_05j92fd" name="Review Submission for Action X">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="name_exp" value="Review submission for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;second&#39;).value()}" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_14auokk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dqleeb</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_1akv1r3" name="Long Term Storage for Action X">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property name="name_exp" value="Long Term Storage for action: ${startFormSubmission.prop(&#39;section1&#39;).prop(&#39;action&#39;).prop(&#39;details&#39;).prop(&#39;third&#39;).value()}" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0dqleeb</bpmn:incoming>
+      <bpmn:outgoing>Flow_1w5gkdl</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_173mgfz">
+      <bpmn:incoming>Flow_1w5gkdl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ts7r17" sourceRef="Event_19ig2qa" targetRef="Activity_0m5w9ox" />
+    <bpmn:sequenceFlow id="Flow_14auokk" sourceRef="Activity_0m5w9ox" targetRef="Activity_05j92fd" />
+    <bpmn:sequenceFlow id="Flow_0dqleeb" sourceRef="Activity_05j92fd" targetRef="Activity_1akv1r3" />
+    <bpmn:sequenceFlow id="Flow_1w5gkdl" sourceRef="Activity_1akv1r3" targetRef="Event_173mgfz" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0b4s90s">
+      <bpmndi:BPMNShape id="Participant_10cz8zq_di" bpmnElement="Participant_10cz8zq" isHorizontal="true">
+        <dc:Bounds x="160" y="85" width="700" height="265" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_066qpmh_di" bpmnElement="Flow_066qpmh">
+        <di:waypoint x="740" y="210" />
+        <di:waypoint x="802" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0eewbj6_di" bpmnElement="Flow_0eewbj6">
+        <di:waypoint x="580" y="210" />
+        <di:waypoint x="640" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16rwvq9_di" bpmnElement="Flow_16rwvq9">
+        <di:waypoint x="420" y="210" />
+        <di:waypoint x="480" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ryjoi1_di" bpmnElement="Flow_1ryjoi1">
+        <di:waypoint x="268" y="210" />
+        <di:waypoint x="320" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="208" y="235" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0c6ppzx_di" bpmnElement="Activity_0qena63">
+        <dc:Bounds x="320" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0p8pirn_di" bpmnElement="Activity_0mi2fmh">
+        <dc:Bounds x="480" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ejklvl_di" bpmnElement="Activity_06qfo5t">
+        <dc:Bounds x="640" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1vnrfsi_di" bpmnElement="Event_1vnrfsi">
+        <dc:Bounds x="802" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1uo1mdn_di" bpmnElement="TextAnnotation_1uo1mdn">
+        <dc:Bounds x="520" y="300" width="230" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_00m96lb_di" bpmnElement="TextAnnotation_00m96lb">
+        <dc:Bounds x="510" y="100" width="220" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1jbv7ns_di" bpmnElement="TextAnnotation_1jbv7ns">
+        <dc:Bounds x="240" y="100" width="200" height="30" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_01yiyn6_di" bpmnElement="Association_01yiyn6">
+        <di:waypoint x="646" y="249" />
+        <di:waypoint x="587" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_146wlg4_di" bpmnElement="Association_146wlg4">
+        <di:waypoint x="543" y="170" />
+        <di:waypoint x="555" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_08sl3m3_di" bpmnElement="Association_08sl3m3">
+        <di:waypoint x="336" y="170" />
+        <di:waypoint x="303" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_14ha0hc_di" bpmnElement="Participant_14ha0hc" isHorizontal="true">
+        <dc:Bounds x="160" y="420" width="700" height="265" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1w5gkdl_di" bpmnElement="Flow_1w5gkdl">
+        <di:waypoint x="740" y="545" />
+        <di:waypoint x="802" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dqleeb_di" bpmnElement="Flow_0dqleeb">
+        <di:waypoint x="580" y="545" />
+        <di:waypoint x="640" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14auokk_di" bpmnElement="Flow_14auokk">
+        <di:waypoint x="420" y="545" />
+        <di:waypoint x="480" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ts7r17_di" bpmnElement="Flow_1ts7r17">
+        <di:waypoint x="268" y="545" />
+        <di:waypoint x="320" y="545" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_19ig2qa_di" bpmnElement="Event_19ig2qa">
+        <dc:Bounds x="232" y="527" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="208" y="570" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0m5w9ox_di" bpmnElement="Activity_0m5w9ox">
+        <dc:Bounds x="320" y="505" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_05j92fd_di" bpmnElement="Activity_05j92fd">
+        <dc:Bounds x="480" y="505" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1akv1r3_di" bpmnElement="Activity_1akv1r3">
+        <dc:Bounds x="640" y="505" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_173mgfz_di" bpmnElement="Event_173mgfz">
+        <dc:Bounds x="802" y="527" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

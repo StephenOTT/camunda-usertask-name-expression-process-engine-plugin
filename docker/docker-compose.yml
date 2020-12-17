@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  camunda-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-camunda
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
