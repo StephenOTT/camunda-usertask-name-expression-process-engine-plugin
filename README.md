@@ -52,7 +52,7 @@ The goal was to get Camunda to add this style of functionality to the engine: Wh
 Where the Name is what is shown on the BPMN visual rendering, and the expression (optional) is what is rendered as the Task name in task lists, etc.
 
 
-**Camunda's recommend solutions in CAM-12811 to this problem are:**
+:crystal_ball: **Camunda's recommend solutions in CAM-12811 to this problem are:**
 
 "...without clogging up the BPMN modeling experience..."
 
@@ -71,7 +71,7 @@ So that brings us to this process engine plugin...
 ![sample](./docs/Sample_of_Problem.png)
 
 
-**We should be able to build models that are both technical and business friendly...**
+:crystal_ball: *We should be able to build models that are both technical and business friendly...**
 
 (And for anyone that will say "Well, you are using a very complex expression in your example..." well other solutions 
 mean you have to create additional process or local variables just so you can set a Task name, or you have to deal with additional 
