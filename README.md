@@ -71,7 +71,7 @@ So that brings us to this process engine plugin...
 ![sample](./docs/Sample_of_Problem.png)
 
 
-:crystal_ball: *We should be able to build models that are both technical and business friendly...**
+:crystal_ball: **We should be able to build models that are both technical and business friendly...**
 
 (And for anyone that will say "Well, you are using a very complex expression in your example..." well other solutions 
 mean you have to create additional process or local variables just so you can set a Task name, or you have to deal with additional 
